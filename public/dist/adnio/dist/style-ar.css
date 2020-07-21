@@ -1,0 +1,139 @@
+body{font-family: 'Cairo', sans-serif;}
+.navbar.navbar-default{left: auto;right: 0;}
+
+div.wrapper > .container.main_content{float: left;}
+
+.navbar .menu-icon {text-align: right;}
+
+.navbar-right{margin-left: 0;}
+
+.topbar > .container{float: left;}
+
+div#footer .jumbotron.push-spaces{float: left;}
+
+.navbar .menu-icon img {margin-right: 0px;margin-left: 10px;}
+
+
+
+
+
+.bootstrap-table .pull-right .dropdown-menu {left: 0;right: auto;}
+
+
+
+.col-xs-11.col-sm-4.alert.alert-success.animated.fadeInDown{right: auto;
+
+left: 20px;}
+
+
+
+.top-elements .dropdown .drop-icon {left: 5px;right: auto;}
+
+#chart_report_summary > div:first-child {
+
+    padding-right: 0;padding-left: 15px;}
+
+#chart_report_summary > div:nth-child(4n) {
+
+    padding-right: 15px;padding-left: 0;}
+
+    #chart_report_summary > div:nth-child(5n) {
+
+    padding-right: 0;padding-left: 15px;}
+
+.quick-actions a i {padding-left: 20px;    border-right: 0;margin-right: 0;padding-right: 0;
+
+    border-left: 1px solid #d7dce5;margin-left: 20px;}
+
+#report_summary > div:first-child {
+
+    padding-right: 0;padding-left: 15px;}
+
+.top-elements .dropdown .dropdown-menu i {
+
+    padding-left: 10px;padding-right: 0;}
+
+.top-elements .dropdown img.flag_img{margin-left: 8px;margin-right: 0;}
+
+/******************************************/
+.left_toggle{left: 0;right: auto;}
+.navbar.navbar-default .navbar-header {
+  /*  border-left: 1px solid #75b6ed;*/border-right: 0;}
+    .navbar.navbar-default a.left_toggle i {transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);-moz-transform: rotateY(180deg);}
+.navbar.navbar-default a i {
+    padding-right: 0;padding-left: 18px;}
+    #page_title{text-align: right;}
+    .dashboard-stats {
+    padding-right: 5%;padding-left: 0;}
+    div#chart_report_summary .left {
+    float: right;    text-align: right;}
+    .dashboard-stats .right {
+    left: 3px;right: auto;}
+    #inventory_report .dashboard-stats .left{float: right;text-align: right;}
+    div#chart1{direction: ltr;}
+    .fixed-table-toolbar .columns label{text-align: right;}
+    ul.dropdown-menu li {
+    text-align: right;}
+    .ct-chart.ct-golden-section,.ct-chart{direction: ltr;}
+    .new_customer_container button {left: 0;right: auto;padding-left: 5px;padding-right: 15px;}
+    .sales_search #new_item_button, .recieve_search #new_item_button {top: 0;right: 0;padding-left: 0px;left: auto;padding-right: 15px;}
+    .sales_search input, .recieve_search input {
+    padding-left: inherit;padding-right: 55px;}
+    .fa.flashstyle {
+    position: absolute;left: 10px;right: auto;}
+    #register_wrapper .panel-body.form-group ul li:nth-child(2) {
+    width: 65%;}
+    #register_wrapper .panel-body.form-group ul li:first-child {
+    width: 30%;}
+    .icon_autocomplete {float: right;}
+    .form-horizontal .form-group-sm .control-label{text-align: right;}
+    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12{text-align: right;}
+    .top-elements .avatar_width .avatar_info{float: left; }
+    #sale_totals tr th {
+    float: right;}
+    #payment_totals tr th {
+    float: right;}
+    table>thead>tr>th, .table>thead>tr>th, table>tbody>tr>th, .table>tbody>tr>th, table>tfoot>tr>th, .table>tfoot>tr>th, table>thead>tr>td, .table>thead>tr>td, table>tbody>tr>td, .table>tbody>tr>td, table>tfoot>tr>td, .table>tfoot>tr>td{text-align: right;}
+/**********************************************/
+
+@media only screen and (max-width: 1200px){
+#chart_report_summary > div:first-child, #chart_report_summary > div:nth-child(5n) {
+    padding-right: 15px;
+}
+#chart_report_summary > div:nth-child(4n) {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 700px){
+
+	div#footer .jumbotron.push-spaces {margin: 0;width: 80%;float: left;}
+
+}
+
+
+
+@media only screen and (max-width: 768px){
+
+	.navbar.navbar-default {margin-right: -250px;}
+
+	.navbar.navbar-default.menu_appear{margin-right: 0;}
+
+	.navbar-left {float: right !important;}
+
+	.navbar-right {float: left !important;}
+
+div#footer .jumbotron.push-spaces {
+    width: 100%;
+}
+.summary_row.col-lg-3.col-md-6.col-sm-6.col-xs-12 {
+    padding-right: 0;
+}
+#chart_report_summary > div:first-child, #chart_report_summary > div:nth-child(5n){padding-right: 0;}
+#chart_report_summary > div:nth-child(5n){padding-right: 0;}
+#chart_report_summary > div:nth-child(4n){padding-right: 0;}
+.summary_row.col-lg-3.col-md-6.col-sm-6.col-xs-12 {
+    padding-left: 15px;}
+}

@@ -1,0 +1,21 @@
+/* ICONOS DE MENUBAR */
+.navbar .menu-icon img {
+    width: 15px;
+    height: 15px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #fff;    /*#2C3E50*/
+    background-color: rgba(0,0,0,0.2)/*
+    height: 60px;	*/
+}
+/*
+.navbar-default {     
+    background-color: teal;
+    background-repeat: no-repeat;	/*
+    height: 1px;		*/
+/*
+############# DODIGO SIGUIENTE ES EL ORILICAL CON SU RESPECTIVO COLOR  SIGUIENTE
+    background-color: #202340;        ####################### COLOR DE LA NAVBAR #2c3e50 ################################
+    border-color: transparent           */
+}

@@ -1,0 +1,102 @@
+a {color: #00897B;}
+.top-bar{background: #00897B;}
+.navbar.navbar-default .navbar-header{background: #00897B;
+	/*border-right: 1px solid #aab1bb;*/}
+
+.navbar-default .navbar-nav>li a:hover{/*border-left-color: #00897B;    andriux1990 */}
+ul.dropdown-menu.language-drop{border-top: 2px solid #00897B;}
+.top-elements .dropdown ul.dropdown-menu.user-dropdown {
+    border-top: 2px solid #00897B;}
+.btn-info:active.focus, .btn-info.active.focus, .open>.dropdown-toggle.btn-info.focus {
+	background-color: #00897B}
+button#generate_barcodes{background: #00897B;}
+#table_holder button.btn.btn-default.btn-sm.dropdown-toggle{;
+    background-color: #00897B !important;}
+    .pagination>li>a, .pagination>li>span{color: #00897B;}
+    .btn-primary {background-color: #00897B;}
+    .panel-primary>.panel-heading{background-color: #00897B;border-color: #00897B;}
+.panel-primary {border-color: #00897B;}
+.customer_summary tr:last-child th:last-child{color:#00897B;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    background-color: #00897B;border: 1px solid #00897B;}
+.nav-tabs>li>a:hover {background-color: #00897B;}
+.quick-actions a:hover{background-color: #00897B;}
+.flatBlue{background-color: #00897B;}
+.bootstrap-dialog.type-primary .modal-header {
+    background-color: #00897B;}
+.btn-default {background-color: #00897B;}
+    .btn-info {background-color: #00897B;}
+    .input-group-addon {background-color: #00897B;}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
+.pagination>.active>span:hover, .pagination>.active>a:focus,
+.pagination>.active>span:focus{background: #00897B;}
+.pagination>li>a:hover, .pagination>li>span:hover,
+.pagination>li>a:focus, .pagination>li>span:focus {
+    background-color: #00897B;}
+.alert-info {
+    background-color: #00897B;
+    border-color: #00897B;}
+button#email, button#bulk_edit, button#generate_barcodes {
+    background: #00897B;}
+    .search input.form-control.input-sm,input#daterangepicker {         /*
+        height: 40px;           */
+        background-color: #f2f6f9;
+        border: 1px solid #00897B;
+    }
+
+    button.show_categories--button {
+        background: #00897B;
+    }
+    .sales_category .sales__category--wrapper a:hover {
+        border: 1px solid #00897B;
+    }
+    .sales__category--image:hover {
+        background: #00897B;
+    }
+
+    .alert-info {
+        background-color: #00897B;
+        border-color: #00897B;
+    }
+
+    .navbar-default .navbar-nav > li.active a, .navbar-default .navbar-nav > li.active a:hover {
+    background: #00897B;
+    border-bottom: 3px solid #1e88e5;
+    color: #fff;
+    border-radius: .50rem;
+    }
+
+    #register th {
+    background-color: teal;
+    padding: 5px;
+    text-align: center;
+    color: #FFF;
+    }
+
+    .top-bar .navbar-default .navbar-right.navbar-nav > li > a {
+    background-color: transparent !important;
+    color: #fff;
+    }
+
+    .left-bar .menu-parent > li:hover, .left-bar .menu-parent > li.active {
+    background-color: #00897B;
+    }
+    
+    .navbar-breadcrumb > a {
+    color: #fff !important;
+    }
+
+    .menu-bar-mobile {
+    display: block;
+    text-decoration: none !important;
+    z-index: 999999999;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 26px;
+    color: #fff;
+    width: 60px;
+    height: 55px;
+    left: 0;
+    top: 0;
+    text-align: center;
+  }

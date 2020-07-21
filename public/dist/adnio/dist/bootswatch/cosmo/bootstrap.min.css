@@ -1,0 +1,45 @@
+a {color: #3498db;}
+.top-bar{background: #3498db;}
+.navbar.navbar-default .navbar-header{background: #3498db;
+	/*border-right: 1px solid #aab1bb;*/}
+
+.navbar-default .navbar-nav>li a:hover{border-left-color: #3498db}
+ul.dropdown-menu.language-drop{border-top: 2px solid #3498db;}
+.top-elements .dropdown ul.dropdown-menu.user-dropdown {
+    border-top: 2px solid #3498db;}
+.btn-info:active.focus, .btn-info.active.focus, .open>.dropdown-toggle.btn-info.focus {
+	background-color: #3498db}
+button#generate_barcodes{background: #3498db;}
+#table_holder button.btn.btn-default.btn-sm.dropdown-toggle{;
+    background-color: #3498db !important;}
+    .pagination>li>a, .pagination>li>span{color: #3498db;}
+    .btn-primary {background-color: #3498db;}
+    .panel-primary>.panel-heading{background-color: #3498db;border-color: #3498db;}
+.panel-primary {border-color: #3498db;}
+.customer_summary tr:last-child th:last-child{color:#3498db;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    background-color: #3498db;border: 1px solid #3498db;}
+.nav-tabs>li>a:hover {background-color: #3498db;}
+.quick-actions a:hover{background-color: #3498db;}
+.flatBlue{background-color: #3498db;}
+.bootstrap-dialog.type-primary .modal-header {
+    background-color: #3498db;}
+.btn-default {background-color: #3498db;}
+    .btn-info {background-color: #3498db;}
+    .input-group-addon {background-color: #3498db;}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
+.pagination>.active>span:hover, .pagination>.active>a:focus,
+.pagination>.active>span:focus{background: #3498db;}
+.pagination>li>a:hover, .pagination>li>span:hover,
+.pagination>li>a:focus, .pagination>li>span:focus {
+    background-color: #3498db;}
+.alert-info {
+    background-color: #3498db;
+    border-color: #3498db;}
+button#email, button#bulk_edit, button#generate_barcodes {
+    background: #3498db;}
+    .search input.form-control.input-sm,input#daterangepicker {
+        height: 40px;
+        background-color: #f2f6f9;
+        border: 1px solid #3498db;
+    }

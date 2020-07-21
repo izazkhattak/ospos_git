@@ -1,0 +1,24 @@
+/* DE BOOTSTRAPMIN */
+.form-control {
+    color: #000;
+    background-color: #fff;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    opacity: 1;
+    background-color: rgb(215, 215, 215);
+}
+
+.form-control {
+   border: 1px solid teal;
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+}
+
+.alert-warning {
+    color: #fff;
+    background-color: #f39c12;
+	border-color: #f39c12;
+}

@@ -1,0 +1,13 @@
+/* DISABLE DISPLAY NONE */
+
+#footer {
+	display: none;
+}
+
+#header {
+	display: none;
+}
+
+#disabletext {
+	display: none;
+}

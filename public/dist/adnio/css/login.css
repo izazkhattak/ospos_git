@@ -1,0 +1,106 @@
+*
+{
+	margin:0;
+	padding:0;
+}
+
+#logo
+{
+	margin-top:2%;
+	margin-bottom:2%;
+}
+
+#login
+{
+	width:400px;
+	margin:0 auto;
+	margin-top:2%;
+	margin-bottom:2%;
+	transition:opacity 1s;
+	-webkit-transition:opacity 1s;
+}
+
+#login h1
+{
+	background:#3399cc;
+	padding:20px 0;
+	font-size:140%;
+	font-weight:300;
+	text-align:center;
+	color:#fff;
+	display: none;
+}
+
+form
+{
+	background:#f0f0f0;
+	padding:6% 4%;
+}
+
+input[type="username"], input[type="password"]
+{
+	width:100%;
+	margin-bottom:4%;
+	padding:4%;
+}
+
+input[type="submit"]
+{
+	width:100%;
+	background:#3399cc;
+	margin-top:4%;
+	border:0;
+	padding:4%;
+	transition:background .3s;
+	-webkit-transition:background .3s;
+}
+
+input[type="submit"]:hover
+{
+	background:#2288bb;
+}
+
+/************ Moustafa LOGIN *************/
+body{    background-color: #e9ebee;}
+#login #logo{text-align: center;color: white;    padding: 10px 0;
+    background-color: #1e88e5;margin-bottom: 0;}
+#login form {
+    background: #f0f0f0;
+    padding: 6% 4%;
+    height: 100%;
+    background-color: #FFFFFF;
+    clear: both;
+    border-radius: 3px;
+    border: 1px solid #d7dce5;
+}
+#login {
+    width: 520px;}
+#login h2{text-align: center;}
+#login input[type="submit"] {
+    width: 100%;
+    background: #1e88e5;height: 40px;
+    font-size: 16px;    border-radius: 0;
+    margin-top: 20px;
+    text-transform: uppercase;
+    line-height: 40px;
+    padding: 0;}
+#login .group input{transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border: 1px solid #d7dce5;
+    box-shadow: none;
+    margin-bottom: 0px;
+    background-color: white !important;
+    background:white !important;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 3px;
+    -webkit-appearance: none;}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: white;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}

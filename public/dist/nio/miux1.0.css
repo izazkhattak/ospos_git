@@ -1,0 +1,592 @@
+/*________ MIUX 1.1 _____06/09/2019____*/
+/* | MIUX SERVICES |*/
+/*_________________________________________ DESING UX BY ANDRIUX1990 MILAN ____________________________________________*/
+
+/*############### TIPO DE FUENTE PARA TODA LA PAGINA ############*/
+/*
+@font-face{
+    font-family:'sans';
+    src: url("GoogleSans-Regular.woff");
+}
+
+body{
+    font-family: 'sans';
+}
+*/
+/*############### /TIPO DE FUENTE PARA TODA LA PAGINA ############*/
+
+/*>>>>>>>>>>>>>>>>>>> BODY <<<<<<<<<<<<<<<<<<*//*
+body {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #2c3e50;             /* ##############################  COLOR DEL TITULO DE HOME: #2c3e50 ############################################### */
+/*    background-color: #ecf0f5;
+/* ##############################  CODIGO AGREGADO ############################################### 
+    background-color: #159957/* rgba(36, 38, 41, 0.975)*//*;
+    background-image: linear-gradient(120deg, #155799, teal);
+            background-attachment: fixed;           
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;*/
+/* ##############################  CODIGO AGREGADO ############################################### */
+/*        background-color: #ecf0f5;/*
+        background-image: -moz-linear-gradient(top, rgba(240, 238, 238, 1), rgba(240, 238, 238, 1)), url("fondo.jpg");
+        background-image: -webkit-linear-gradient(top, rgba(240, 238, 238, 1), rgba(240, 238, 238, 1)), url("fondo.jpg");
+        background-image: -ms-linear-gradient(top, rgba(240, 238, 238, 1), rgba(240, 238, 238, 1)), url("fondo.jpg");
+        background-image: linear-gradient(top, rgba(240, 238, 238, 1), rgba(240, 238, 238, 1)), url("fondo.jpg");   
+        background-attachment: fixed;           
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;/*
+        padding-top: 0; */
+/* ##############################  /CODIGO AGREGADO ############################################## */   /*
+}   */
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: SourceSansPro-Regular;
+  src: url('../fonts/source-sans-pro/SourceSansPro-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: SourceSansPro-Bold;
+  src: url('../fonts/source-sans-pro/SourceSansPro-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: SourceSansPro-SemiBold;
+  src: url('../fonts/source-sans-pro/SourceSansPro-SemiBold.ttf'); 
+}
+
+@font-face {
+  font-family: JosefinSans-Bold;
+  src: url('../fonts/JosefinSans/JosefinSans-Bold.ttf'); 
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+.topbar {
+    color: #000;
+    font-size: 12px;
+    padding: -0.8em;     /*
+    background: #1e88e5;       
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(to right, #2EA198, #6991DD, #D3D3FE);       
+    box-shadow: 0 1px 6px rgba(189, 89, 212, 0.5);      */
+}
+
+#blanco {
+    background-color: #fff;
+}
+
+a {
+    color: rgba(130, 194, 181, 1);           /* #################### CODIGO CAMBIADO  color: #18bc9c; ########################## */   
+    text-decoration: none
+}
+/* <<<<<<<<< TEXTO CENTRAL DE HOME >>>>>>>>>>>>>>>> */
+.text-center {
+    text-align: center;
+    color: #6b6b6b;
+}
+/*### DOCK DE APLICACIONES ###*/
+.navbar-default {
+    background-color: ;
+    background-repeat: no-repeat;
+}
+
+/*MODULO VENTAS *//* DESACTIVADO PORQUE ESTE FRAMEWORK CSS YA ESTA EN DISPLAY2SALES
+#overall_sale {
+    width: 29.89%;
+    float: left;
+    margin-left: .1em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    font-size: 13px;
+    text-align: center;
+}   */
+/* BOTONES FORMA DE */
+.btn-sm, .btn-group-sm > .btn {
+    padding: 6px 9px;
+        padding-right: 9px;
+    font-size: 13px;
+    line-height: 1.5;
+    border-radius: 3em;
+}
+
+.form-control,
+input {
+    border-width: 2px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 3em;
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>> CENTRO DE PAGOS <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+#register_wrapper {
+	color: rgba(11, 16, 21, 1);
+}
+/*
+#cart_contents  {
+    font-size: 13px
+}
+*/
+#Total{
+	color: #000;
+	font-size: 22px;
+}
+
+#pagado{
+	color: #000;
+	font-size: 22px;
+}
+/*################*/
+#cambio{
+	color: #000;
+	font-size: 22px;
+}
+#vuelto{
+	color: rgba(137, 0, 0, 1);
+	font-size: 20px;
+}
+/*################*/
+#amount_tendered {
+	font-size:22px;
+}
+
+#add_payment_form {
+	color: #000;
+	font-size:14px;
+}
+
+#overall_sale {
+	background: rgba(0,0,0,0.3);
+	color:  #000;
+	font-size: 14px;
+    border-color: #b0b0b0;
+    border-radius: 1em;
+}
+
+#payment_details {
+/*  background-color: #DDD */       /* ########### CODIGO DESACTIVADO ###############
+    background-color: #159957/* rgba(36, 38, 41, 0.975);
+    background-image: linear-gradient(120deg, #155799, #159957);*/
+    background-color: #3c8dbc;
+}
+
+#mode_form, #payment_details {
+    background-color: #D5E4EC;
+    border-top-right-radius: 1em;
+/* border-bottom-right-radius: 1em;     */
+/* border-bottom-left-radius: 1em;      */
+    border-top-left-radius: 1em;
+}
+
+/* ################# TIPO DE LETRA EN RESIVO DE TICKED ###############*/
+@font-face{
+	font-family:'fuente';
+	src: url("Ticketing.woff");
+}
+
+#receipt_wrapper{
+	font-family: 'fuente';
+}
+
+/*##################### CODIGO PARA DEJAR TAMANO ESCRITORIO EN DISPOSITIVOS MOVILES ###############################*/
+#panel {
+	background-color: #eee
+}
+
+#primera {
+	color: red;
+}
+
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+body {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #2c3e50;             /* ##############################  COLOR DEL TITULO DE HOME: #2c3e50 ############################################### */
+    background-color: #bdbfc2;
+        /*    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); */
+          
+/* ##############################  CODIGO AGREGADO ############################################### 
+    background-color: #159957/* rgba(36, 38, 41, 0.975)*//*;
+    background-image: linear-gradient(120deg, #155799, teal);
+            background-attachment: fixed;           
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;*/
+/* ##############################  CODIGO AGREGADO ############################################### 
+        background-color: #fff;/*
+        background-image: -moz-linear-gradient(top, rgba(240, 238, 238, 1), rgba(240, 238, 238, 1)), url("fondo.jpg");
+        background-image: -webkit-linear-gradient(top, rgba(240, 238, 238, 1), rgba(240, 238, 238, 1)), url("fondo.jpg");
+        background-image: -ms-linear-gradient(top, rgba(240, 238, 238, 1), rgba(240, 238, 238, 1)), url("fondo.jpg");
+        background-image: linear-gradient(top, rgba(240, 238, 238, 1), rgba(240, 238, 238, 1)), url("fondo.jpg");   
+        background-attachment: fixed;           
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;/*
+        padding-top: 0; */
+/* ##############################  /CODIGO AGREGADO ############################################## */   
+}
+
+/*############################## DE BOOSTRAP MIN ###############################*/
+.btn-success {
+    color: #fff;
+    background-color: #008d4c;
+    border-color: #008d4c;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 15px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 1em;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+
+.dropdown-menu > li > a {
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #444444;
+    white-space: nowrap;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #090;
+    outline: 0;
+}
+
+.ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1050;
+    float: left;
+    display: none;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 13px;
+    background-color: #fff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, .15);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 1em;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .175);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .175);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .175);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 21px;
+    line-height: 1.42857143;
+    background-color: #ffffff;
+    border: 1px solid #ecf0f1;
+    border-radius: 1em;
+    transition: border .2s ease-in-out;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #999999;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 6px;
+    box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+    outline: 0;
+}
+/*############################## /DE BOOSTRAP MIN ###############################*/
+
+a {
+    color: rgb(0, 0, 0);           /* #################### CODIGO CAMBIADO  color: #18bc9c; ########################## */   
+    text-decoration: none
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+    margin-top: 21px;   /* ########### CODIGO ANTERIOR LOGIN VERSION margin-top: 21px; ############ */
+    margin-bottom: 10.5px
+}
+
+.text-center {
+    text-align: center;
+    color: #6b6b6b;            /* #################### CODIGO COLOR AGREGADO ################### */
+}
+
+.container {
+    margin-right: auto;     /*  ########### CODIGO DESACTIVADO PARA PONER EN IZQUIERDA A CAJERO ########## */  
+    margin-left: auto;      
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (min-width:768px) {
+    .container {
+        width: 100%;       /*  ########### CODIGO ANTERIOR 750px ########## */
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        width: 100%;       /* ################# CODIGO ANTERION width :1170px ################*/
+    }
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px
+}
+/*>>>>>>>>>>>>>>>>> PARCHE PARA SUBIR EL .ROW <<<<<<<<<<<<<<<<<<<<<<*/
+
+/*>>>>>>>>>>>>>>>>> PARCHE PARA SUBIR EL .ROW <<<<<<<<<<<<<<<<<<<<<<*/
+table {
+    background-color: transparent;          /*###################### COLOR ANTERIOR : TRASPARENTE*/
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 21px;
+    background-color: #fff;          /*###################### CODIGO AGREGADO */
+}
+
+/*########################################AJUSTES PARA LOS ESPACIOS DE REGISTER PRECIO DE LOS PRODUCTOS################################################*/
+
+.input-nio {
+    height: 35px;
+    padding: 6px 9px;
+    font-size: 13px;            /*###################### CODIGO ANTERIOR 13px ############################*/
+    line-height: 1.5;
+    border-radius: 3em;          /*###################### CODIGO ANTERIOR border-radius: 3px; FORMA DE CELDA DE INTRODUCIR TEXTO ############################*/
+    width: 65px;
+    height: 36px;
+}
+
+.input-nioui {
+    height: 35px;
+    padding: 6px 9px;
+    font-size: 13px;            /*###################### CODIGO ANTERIOR 13px ############################*/
+    line-height: 1.5;
+    border-radius: 3em;          /*###################### CODIGO ANTERIOR border-radius: 3px; FORMA DE CELDA DE INTRODUCIR TEXTO ############################*/
+    width: 49px;
+    height: 36px;
+}
+
+/*##########################################################################################*/
+
+.input-smnio {
+    height: 35px;
+    padding: 6px 9px;
+    font-size: 13px;            /*###################### CODIGO ANTERIOR 13px ############################*/
+    line-height: 1.5;
+    border-radius: 3em;          /*###################### CODIGO ANTERIOR border-radius: 3px; FORMA DE CELDA DE INTRODUCIR TEXTO ############################*/
+    width: 60px;
+}
+
+.input-sm {
+    height: 32px;
+    padding: 6px 9px;
+    font-size: 13px;            /*###################### CODIGO ANTERIOR 13px ############################*/
+    line-height: 1.5;
+    border-radius: 3em;          /*###################### CODIGO ANTERIOR border-radius: 3px; FORMA DE CELDA DE INTRODUCIR TEXTO ############################*/
+}
+
+.btn-sm,
+.btn-group-sm>.btn {
+    padding: 6px 9px;
+    font-size: 13px;
+    line-height: 1.5;
+    border-radius: 3em;     /*###################### RADIO DEL BOTON FORMA CIRCULAR. CODIGO ANTERIOR border-radius: 3px; ############################*/
+}
+
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
+    width: 50%;                     /*#################### CODIGO ANTERIOR width: 100% ###################*/
+    margin-left: 25%;               /*#################### CODIGO AGREGADO ###################*/
+
+}
+/*########################### COLOR DE LOS BOTONES #####################*/
+.btn-default {
+    color: #ffffff;
+    background-color: #f39c12;;
+    border-color: #e08e0b;
+}
+/*
+.btn-info {
+    color: #000;
+    background-color: #00c0ef;
+    border-color: #00acd6;
+}       */
+/*########################### /COLOR DE LOS BOTONES #####################*/
+.btn-toolbar>.btn,
+.btn-toolbar>.btn-group,
+.btn-toolbar>.input-group {
+    margin-left: 5px;
+    border-radius: 3em;             /*####################################### CODIGO AGREGADO ###########################*/
+}
+
+.btn-group>.btn-group:last-child:not(:first-child)>.btn:first-child {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-radius: 3em;         /*############### CODIGO AGREGADO ############################3*/
+}
+
+.input-group-addon {
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1;
+    color: red;                     /*############# codigo anterior color: #2c3e50;   #####################*/
+/*  border: 1px solid #dce4ec;      */
+    text-align: center;
+    background-color: transparent;      /*############# codigo anterior background-color: #ecf0f1;  #####################*/
+ /* border: 1px solid #dce4ec;      */
+    border-radius: 4px
+}
+
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child>.btn,
+.input-group-btn:first-child>.btn-group>.btn,
+.input-group-btn:first-child>.dropdown-toggle,
+.input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child>.btn-group:not(:last-child)>.btn {  /*
+    border-bottom-right-radius: 3em;    /* ############ CODIGO ANTERIOR 0 ###########*
+    border-top-right-radius: 3em;   /* ############ CODIGO ANTERIOR 0 ###########
+    width: 49px;        */
+    height: 30px;       /*
+    top: 7px;          */
+    left: 11px;        /*   
+    border-bottom-left-radius: 3em;
+    border-top-left-radius: 3em;*/
+}
+
+.input-group-addon:first-child {
+    border-right: 0
+}
+
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child>.btn,
+.input-group-btn:last-child>.btn-group>.btn,
+.input-group-btn:last-child>.dropdown-toggle,
+.input-group-btn:first-child>.btn:not(:first-child),
+.input-group-btn:first-child>.btn-group:not(:first-child)>.btn {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;  /*
+    border-radius: 3em;                 /*############### CODIGO AGREGADO PARA REDONDEAR #################
+    right: 17px;        
+    border-bottom-right-radius: 3em;
+    border-top-right-radius: 3em;   */
+}
+
+.navbar {
+    position: relative;
+    min-height: 53px;          /*   ############ CERRADO TEMPORALMETNE
+    margin-bottom: 21px;          ######################################*//*
+    border: 1px solid transparent   */
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;                  /*  ####################### COLOR DEL TEXTOBOTON INICIO #ffffff ################################*/
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;              /*  ####################### COLOR DEL TEXTO DE APLICACIONES EN LA NAVBAR #ffffff ################################*/
+}
+
+.alert-info {
+    background-color: transparent;/*rgba(0,0,0,0.1);*/
+    border-color: transparent; /*rgba(0,0,0,0.2);*/
+    color: #000;
+    border-radius: 3em;     /*###################### CODIGO AGREGADO ###########################*/
+}
+
+.panel {
+    margin-bottom: 21px;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 0px;    /*################## CODIGO DESACTIVADO PARA DEJAR SIN BORDES ############*/
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.50);
+}
+/*
+.panel-primary>.panel-heading {
+    color: #ffffff;
+/*  background-color: #2c3e50;  */      /* ############### CODIGO DESACTIVADO ###############*/ /*
+    background-color: #3c8dbc;;;
+    border-color: #007a64;
+}
+*/
+.btn {
+    border-width: 2px;
+    border-radius: 3em;         /*####################### CODIGO AGREGADO ##########################3*/
+}
+
+.fixed-table-toolbar .btn-group > .btn-group:first-child > .btn {
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+}
+
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+    border-bottom-right-radius: 3em;
+    border-top-right-radius: 3em;
+}
+
+/*   FOOTER                 */
+.jumbotron {
+/*
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;    */
+    color: inherit;
+    background-color: rgba(255,255,255,0.8) !important;
+
+#footer {
+
+    margin-top: 5em;
+    text-align: center;
+    font-size: 10px;
+    color: #777;
+    clear: both;
+}

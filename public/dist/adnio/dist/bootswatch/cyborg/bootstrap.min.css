@@ -1,0 +1,101 @@
+a {color: #FB8C00;}
+.top-bar{background: #FB8C00;}
+.navbar.navbar-default .navbar-header{background: #FB8C00;
+	/*border-right: 1px solid #aab1bb;*/}
+
+.navbar-default .navbar-nav>li a:hover{/*border-left-color: #FB8C00;    andriux1990 */}
+ul.dropdown-menu.language-drop{border-top: 2px solid #FB8C00;}
+.top-elements .dropdown ul.dropdown-menu.user-dropdown {
+    border-top: 2px solid #FB8C00;}
+.btn-info:active.focus, .btn-info.active.focus, .open>.dropdown-toggle.btn-info.focus {
+	background-color: #FB8C00}
+button#generate_barcodes{background: #FB8C00;}
+#table_holder button.btn.btn-default.btn-sm.dropdown-toggle{;
+    background-color: #FB8C00 !important;}
+    .pagination>li>a, .pagination>li>span{color: #FB8C00;}
+    .btn-primary {background-color: #FB8C00;}
+    .panel-primary>.panel-heading{background-color: #FB8C00;border-color: #FB8C00;}
+.panel-primary {border-color: #FB8C00;}
+.customer_summary tr:last-child th:last-child{color:#FB8C00;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    background-color: #FB8C00;border: 1px solid #FB8C00;}
+.nav-tabs>li>a:hover {background-color: #FB8C00;}
+.quick-actions a:hover{background-color: #FB8C00;}
+.flatBlue{background-color: #FB8C00;}
+.bootstrap-dialog.type-primary .modal-header {
+    background-color: #FB8C00;}
+.btn-default {background-color: #FB8C00;}
+    .btn-info {background-color: #FB8C00;}
+    .input-group-addon {background-color: #FB8C00;}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
+.pagination>.active>span:hover, .pagination>.active>a:focus,
+.pagination>.active>span:focus{background: #FB8C00;}
+.pagination>li>a:hover, .pagination>li>span:hover,
+.pagination>li>a:focus, .pagination>li>span:focus {
+    background-color: #FB8C00;}
+.alert-info {
+    background-color: #FB8C00;
+    border-color: #FB8C00;}
+button#email, button#bulk_edit, button#generate_barcodes {
+    background: #FB8C00;}
+    .search input.form-control.input-sm,input#daterangepicker {     /*
+        height: 40px;           */
+        background-color: #f2f6f9;
+        border: 1px solid #FB8C00;
+    }
+    button.show_categories--button {
+        background: #FB8C00;
+    }
+    .sales_category .sales__category--wrapper a:hover {
+        border: 1px solid #FB8C00;
+    }
+    .sales__category--image:hover {
+        background: #FB8C00;
+    }
+
+    .alert-info {
+        background-color: #FB8C00;
+        border-color: #FB8C00;
+    }
+
+    .navbar-default .navbar-nav > li.active a, .navbar-default .navbar-nav > li.active a:hover {
+    background: #FB8C00;
+    border-bottom: 3px solid #1e88e5;
+    color: #fff;
+    border-radius: .50rem;
+    }
+
+    #register th {
+    background-color: #FB8C00;
+    padding: 5px;
+    text-align: center;
+    color: #FFF;
+    }
+
+    .top-bar .navbar-default .navbar-right.navbar-nav > li > a {
+    background-color: transparent !important;
+    color: #fff;
+    }
+
+    .left-bar .menu-parent > li:hover, .left-bar .menu-parent > li.active {
+    background-color: #FB8C00;
+    }
+    
+    .navbar-breadcrumb > a {
+    color: #fff !important;
+    }
+
+    .menu-bar-mobile {
+    display: block;
+    text-decoration: none !important;
+    z-index: 999999999;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 26px;
+    color: #fff;
+    width: 60px;
+    height: 55px;
+    left: 0;
+    top: 0;
+    text-align: center;
+  }

@@ -1,0 +1,29 @@
+/*___________________ OVERFLOW-X ______________
+VERSION 1.0
+DESING BY ANDRIUX1990 ________________________*/
+
+#cart_contents {
+    position: absolute;
+    float: heith
+    z-index: 60;/*
+    top: 490px;
+    overflow: scroll;*/
+    overflow-x: hidden;
+    width: 70%;
+    height: 64%;
+    -webkit-transition: top .2s ease-in-out;
+    transition: top .2s ease-in-out;
+}
+
+#overall_sale {
+    position: absolute;
+    float: heith
+    z-index: 60;/*
+    top: 490px;
+    overflow: scroll;*/
+    overflow-x: hidden;
+    width: 29.89%;
+    height: 86%;
+    -webkit-transition: top .2s ease-in-out;
+    transition: top .2s ease-in-out;
+}

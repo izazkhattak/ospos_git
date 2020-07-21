@@ -1,0 +1,135 @@
+/*___________________ OVERFLOW-X ______________
+VERSION 1.0 BETA
+DESING BY ANDRIUX1990 ________________________*/
+/*
+#cart_contents {
+    position: absolute;
+    background-color: red;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    float: heith;
+    z-index: 60;
+    top: 490px;
+    overflow: scroll;
+    overflow-y: hidden;
+    width: 70%;
+    height: 64%;
+    -webkit-transition: top .2s ease-in-out;
+    transition: top .2s ease-in-out;
+}
+*/
+#payment_details, #payment_totals, #sale_totals {
+    border-top: 1px solid #c0c0c0;
+}
+#register td {
+    background-color: #fff;
+    color: #000:;
+    padding: 2px;
+    text-align: center;
+}
+#add_item_form, #overall_sale {
+    background-color: #fff;
+    border-color: #b0b0b0;
+}
+
+.panel-body {
+    padding: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+#ncantidad {
+    font-size: 16px;
+}
+
+#norden {
+    display: none;
+}
+
+#ntotal {
+    font-size: 2.5em;
+}
+
+#npagado {
+    font-size: 18px;
+}
+
+#nadeudado {
+    font-size: 20px;
+}
+
+#payment_totals    {
+    font-size: 15px;
+}
+
+#overall_sale { /*
+    position: absolute; */
+    float: heith;
+    z-index: 60;/*
+    top: 490px;
+    overflow: scroll;*/
+    overflow-x: hidden;
+    width: 29.89%;
+    height: 88%;
+    -webkit-transition: top .2s ease-in-out;
+    transition: top .2s ease-in-out;
+}
+
+@media (min-width:512px) {
+}
+#overall_sale {
+    width: 100%;
+    float: left;
+    margin-left: .1em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    font-size: 13px;
+    text-align: center
+}
+#nionum {
+    display: none;
+}
+#nion {
+    display: none;
+}
+.row {
+    margin-left: -2px;
+    margin-right: -19px;
+}
+@media (min-width:768px)    {
+#overall_sale {
+    position: absolute;
+    width: 29%;
+    float: left;
+    margin-left: .1em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    font-size: 13px;
+    text-align: center
+}
+.row {
+    margin-right: -36px;
+    margin-left: 56px;
+}
+}
+/*
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child>.btn,
+.input-group-btn:first-child>.btn-group>.btn,
+.input-group-btn:first-child>.dropdown-toggle,
+.input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child>.btn-group:not(:last-child)>.btn {
+    border-bottom-right-radius: 3em;    /* ############ CODIGO ANTERIOR 0 ###########*//*
+    border-top-right-radius: 3em;   /* ############ CODIGO ANTERIOR 0 ###########*//*
+    width: 90px;
+}
+
+#cid {
+    border-width: 2px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 3em;
+    width: 90px;
+}
+*/

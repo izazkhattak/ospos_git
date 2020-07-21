@@ -1,0 +1,41 @@
+a {color: #3f51b5;}
+.topbar{background: #3F51B5;}
+.navbar.navbar-default .navbar-header{background: #3F51B5;
+	/*border-right: 1px solid #aab1bb;*/}
+.navbar-default .navbar-nav>li.active a,.navbar-default .navbar-nav>li.active a:hover{
+	border-left: 4px solid #3F51B5;}
+.navbar-default .navbar-nav>li a:hover{border-left-color: #3F51B5}
+ul.dropdown-menu.language-drop{border-top: 2px solid #3F51B5;}
+.top-elements .dropdown ul.dropdown-menu.user-dropdown {
+    border-top: 2px solid #3F51B5;}
+.btn-info:active.focus, .btn-info.active.focus, .open>.dropdown-toggle.btn-info.focus {
+	background-color: #3F51B5}
+button#generate_barcodes{background: #3F51B5;}
+#table_holder button.btn.btn-default.btn-sm.dropdown-toggle{;
+    background-color: #3F51B5 !important;}
+    .pagination>li>a, .pagination>li>span{color: #3F51B5;}
+    .btn-primary {background-color: #3F51B5;}
+    .panel-primary>.panel-heading{background-color: #3F51B5;border-color: #3F51B5;}
+.panel-primary {border-color: #3F51B5;}
+.customer_summary tr:last-child th:last-child{color:#3F51B5;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    background-color: #3F51B5;border: 1px solid #3F51B5;}
+.nav-tabs>li>a:hover {background-color: #3F51B5;}
+.quick-actions a:hover{background-color: #3F51B5;}
+.flatBlue{background-color: #3F51B5;}
+.bootstrap-dialog.type-primary .modal-header {
+    background-color: #3F51B5;}
+.btn-default {background-color: #3F51B5;}
+    .btn-info {background-color: #3F51B5;}
+    .input-group-addon {background-color: #3F51B5;}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
+.pagination>.active>span:hover, .pagination>.active>a:focus,
+.pagination>.active>span:focus{background: #3f51b5;}
+.pagination>li>a:hover, .pagination>li>span:hover,
+.pagination>li>a:focus, .pagination>li>span:focus {
+    background-color: #3F51B5;}
+.alert-info {
+    background-color: #3f51b5;
+    border-color: #3f51b5;}
+button#email, button#bulk_edit, button#generate_barcodes {
+    background: #3f51b5;}

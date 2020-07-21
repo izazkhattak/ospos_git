@@ -1,0 +1,103 @@
+a {color: #E53935;}
+.top-bar{background: #E53935;}
+.navbar.navbar-default .navbar-header{background: #E53935;
+	/*border-right: 1px solid #aab1bb;*/}
+
+.navbar-default .navbar-nav>li a:hover{/*border-left-color: #E53935;    andriux1990 */}
+ul.dropdown-menu.language-drop{border-top: 2px solid #E53935;}
+.top-elements .dropdown ul.dropdown-menu.user-dropdown {
+    border-top: 2px solid #E53935;}
+.btn-info:active.focus, .btn-info.active.focus, .open>.dropdown-toggle.btn-info.focus {
+	background-color: #E53935}
+button#generate_barcodes{background: #E53935;}
+#table_holder button.btn.btn-default.btn-sm.dropdown-toggle{;
+    background-color: #E53935 !important;}
+    .pagination>li>a, .pagination>li>span{color: #E53935;}
+    .btn-primary {background-color: #E53935;}
+    .panel-primary>.panel-heading{background-color: #E53935;border-color: #E53935;}
+.panel-primary {border-color: #E53935;}
+.customer_summary tr:last-child th:last-child{color:#E53935;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    background-color: #E53935;border: 1px solid #E53935;}
+.nav-tabs>li>a:hover {background-color: #E53935;}
+.quick-actions a:hover{background-color: #E53935;}
+.flatBlue{background-color: #E53935;}
+.bootstrap-dialog.type-primary .modal-header {
+    background-color: #E53935;}
+.btn-default {background-color: #E53935;}
+    .btn-info {background-color: #E53935;}
+    .input-group-addon {background-color: #E53935;}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
+.pagination>.active>span:hover, .pagination>.active>a:focus,
+.pagination>.active>span:focus{background: #E53935;}
+.pagination>li>a:hover, .pagination>li>span:hover,
+.pagination>li>a:focus, .pagination>li>span:focus {
+    background-color: #E53935;}
+.alert-info {
+    background-color: #E53935;
+    border-color: #E53935;}
+button#email, button#bulk_edit, button#generate_barcodes {
+    background: #E53935;}
+
+    .search input.form-control.input-sm,input#daterangepicker {     /*
+        height: 40px;       */
+        background-color: #f2f6f9;
+        border: 1px solid #E53935;
+    }
+
+    button.show_categories--button {
+        background: #E53935;
+    }
+    .sales_category .sales__category--wrapper a:hover {
+        border: 1px solid #E53935;
+    }
+    .sales__category--image:hover {
+        background: #E53935;
+    }
+
+    .alert-info {
+        background-color: #E53935;
+        border-color: #E53935;
+    }
+
+    .navbar-default .navbar-nav > li.active a, .navbar-default .navbar-nav > li.active a:hover {
+    background: #E53935;
+    border-bottom: 3px solid #1e88e5;
+    color: #fff;
+    border-radius: .50rem;
+    }
+
+    #register th {
+    background-color: red;
+    padding: 5px;
+    text-align: center;
+    color: #FFF;
+    }
+
+    .top-bar .navbar-default .navbar-right.navbar-nav > li > a {
+    background-color: transparent !important;
+    color: #fff;
+    }
+
+    .left-bar .menu-parent > li:hover, .left-bar .menu-parent > li.active {
+    background-color: #E53935;
+    }
+    
+    .navbar-breadcrumb > a {
+    color: #fff !important;
+    }
+
+    .menu-bar-mobile {
+    display: block;
+    text-decoration: none !important;
+    z-index: 999999999;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 26px;
+    color: #fff;
+    width: 60px;
+    height: 55px;
+    left: 0;
+    top: 0;
+    text-align: center;
+  }
