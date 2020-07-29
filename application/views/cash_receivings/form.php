@@ -141,7 +141,7 @@
 					'name'=>'note',
 					'id'=>'note',
 					'value'=>0,
-					'checked'=>($cash_ups_info->note) ? 1 : 0)
+					'checked'=>isset($cash_ups_info->note) ? 1 : 0)
 				);?>
 			</div>
 		</div>
@@ -282,13 +282,14 @@
 					'name'=>'description',
 					'id'=>'description',
 					'class'=>'form-control input-sm',
-					'value'=>$cash_ups_info->description)
+					'value'=> isset($cash_ups_info->description) ? $cash_ups_info->description : ''
+					)
 					);?>
 			</div>
 		</div>
 
 		<?php
-		if(!empty($cash_ups_info->cashup_id))
+		if(isset($cash_ups_info->cashup_id) && !empty($cash_ups_info->cashup_id))
 		{
 		?>
 			<div class="form-group form-group-sm">

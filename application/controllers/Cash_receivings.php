@@ -64,12 +64,6 @@ class Cash_receivings extends Secure_Controller
 
         $cash_receiving_info = $this->Cash_receiving->get_info($cashup_id);
 
-        // echo "ahelo";
-        // echo "<pre>";
-        // print_r($cash_receiving_info);
-        // echo "</pre>";
-        // exit;
-
         foreach (get_object_vars($cash_receiving_info) as $property => $value) {
             $cash_receiving_info->$property = $this->xss_clean($value);
         }
