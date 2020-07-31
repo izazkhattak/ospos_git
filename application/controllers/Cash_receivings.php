@@ -218,7 +218,7 @@ class Cash_receivings extends Secure_Controller
             'old_amount_giftcards' => ($tendered_amount > 0) ? $old_amount_giftcards : 0,
             'expences_check' => ($tendered_amount > 0 && $total_expances > 0) ? $total_expances : 0,
             'cash_receivings' => (isset($tendered_amount_cash) && $tendered_amount > 0) ? $tendered_amount_new : 0,
-            // 'cash_receivings' => 0,
+            // 'cash_receivings' => $cash_receiving,
             'last_cash_received' => $last_cash_received,
             'total_cash_received' => $total_cash_received,
             'remaining_cash' => $remaining_cash,

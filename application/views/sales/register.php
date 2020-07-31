@@ -286,7 +286,7 @@ if (isset($success)) {
 					<td>
 						<?php
 							if ($item['kit_name']) {
-								echo form_input(array('autocomplete'=>'off', 'data-trid' => 'child_kits_' . $kit_item_inc, 'name' => 'quantity_kit', 'class' => 'form-control input-sm cantidad', 'value' => to_quantity_decimals($item['kit_temp']), 'tabindex' => ++$tabindex, 'onClick' => 'this.select();'));
+								echo form_input(array('autocomplete'=>'off', 'data-trid' => 'child_kits_' . $kit_item_inc, 'name' => 'quantity_kit', 'class' => 'form-control input-sm cantidad', 'value' => to_currency_no_money($item['kit_temp']), 'tabindex' => ++$tabindex, 'onClick' => 'this.select();'));
 							} else {
 								echo form_input(array('data-trid' => 'child_kits_' . $kit_item_inc, 'name' => 'quantity', 'class' => 'form-control input-sm cantidad', 'value' => to_quantity_decimals($item['quantity']), 'tabindex' => ++$tabindex, 'onClick' => 'this.select();'));
 							}

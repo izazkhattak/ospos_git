@@ -476,7 +476,7 @@ class Sale_lib
 
 						$discount_value = $item['discount'];
 						if($item['discount_type'] == 1){
-							$discount_value = bcmul($item['discount'], $item['kit_temp']);
+							$discount_value = $item['discount'];//bcmul($item['discount'], $item['kit_temp']);
 						}
 						
 						// if($kit_unique_inc > 0 && $item['discount_type'] == 1){
@@ -488,7 +488,7 @@ class Sale_lib
 						$kit_unique_inc++;
 						$discount_value = $item['discount'];
 						if($item['discount_type'] == 1){
-							$discount_value = bcmul($item['discount'], $item['kit_temp']);
+							$discount_value = $item['discount'];//bcmul($item['discount'], $item['kit_temp']);
 						}
 						
 						if($kit_unique_inc > 0 && $item['discount_type'] == 1){
@@ -866,8 +866,8 @@ class Sale_lib
 
 		if($kit_name != NULL){
 			$mutple_with_quantity_discount = bcmul($not_repeated_discount, $kit_temp);
-			$total = 0; //bcsub($total, $mutple_with_quantity_discount);
-			$discounted_total = 0; // bcsub($discounted_total, $mutple_with_quantity_discount);
+			$total = 0.00; //bcsub($total, $mutple_with_quantity_discount);
+			$discounted_total = 0.00; // bcsub($discounted_total, $mutple_with_quantity_discount);
 		}
 		
 
@@ -1006,7 +1006,7 @@ class Sale_lib
 
 						$bottom_discount = $discount;
 						if($discount_type == 1){
-							$bottom_discount = bcmul($discount, $kit_temp);
+							$bottom_discount = $discount;//bcmul($discount, $kit_temp);
 						}
 						
 						if($kit_increment > 0 && $discount_type == 1){
@@ -1017,7 +1017,7 @@ class Sale_lib
 						$quantity = ($items[$key]['kit_default_quantity'] * $kit_temp);
 						$items[$key]['description'] = $description;
 						$items[$key]['serialnumber'] = $serialnumber;
-						$items[$key]['kit_temp'] = $kit_temp;
+						$items[$key]['kit_temp'] = ($kit_temp < 1) ? 1 : $kit_temp;
 						$items[$key]['quantity'] = $quantity;
 						$items[$key]['discount'] = $discount;
 						if(!is_null($discount_type))
@@ -1033,7 +1033,7 @@ class Sale_lib
 						}
 						$items[$key]['total'] = $this->get_item_total($quantity, $items[$key]['price'], $bottom_discount, $items[$key]['discount_type']);
 						$items[$key]['discounted_total'] = $this->get_item_total($quantity, $items[$key]['price'], $bottom_discount, $items[$key]['discount_type'], TRUE);
-						$kit_dicounted_value += $this->get_item_total($quantity, $items[$key]['price'], $bottom_discount, $items[$key]['discount_type'], TRUE);
+						$kit_dicounted_value = round(bcadd($kit_dicounted_value, $items[$key]['discounted_total'] ), 2, PHP_ROUND_HALF_UP);
 						$items[$key]['kit_total_temp_price'] = $kit_dicounted_value;
 						// $items[$key]['kit_total_temp_original_price'] = bcmul($row['price'], $kit_temp);
 						
@@ -1133,7 +1133,7 @@ class Sale_lib
 			$item_info = $this->CI->Item->get_info_by_id_or_number($item_kit_item['item_id'], 0);
 			if(!empty($item_info)){
 				$bottom_discount = $discount;
-				if($key > 0){
+				if($key > 0 && $discount_type == 1){
 					$bottom_discount = 0;
 				}
 				// If quantity purchased and then check for receipt or else then!
@@ -1142,8 +1142,8 @@ class Sale_lib
 				}else{
 					$item_quantity = $item_kit_item['quantity'];
 				}
-				$total_kit_original_value += bcmul($item_kit_item['quantity'], $item_kit_item['unit_price']);
-				$total_kit_price += $this->get_item_total($item_kit_item['quantity'], $item_kit_item['unit_price'], $bottom_discount, $discount_type, TRUE);
+				$total_kit_original_value = round(bcadd($total_kit_original_value, bcmul($item_kit_item['quantity'], $item_kit_item['unit_price']) ), 2);
+				$total_kit_price = round(bcadd($total_kit_price, $this->get_item_total($item_kit_item['quantity'], $item_kit_item['unit_price'], $bottom_discount, $discount_type, TRUE)), 2);
 			}
 		}
 		foreach($this->CI->Item_kit_items->get_info($item_kit_id) as $key2=> $item_kit_item)

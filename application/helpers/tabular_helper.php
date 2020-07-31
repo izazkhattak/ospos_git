@@ -792,6 +792,7 @@ function get_cash_receivings_manage_table_headers()
 		array('closed_amount_due' => $CI->lang->line('cash_receiving_closed_amount_due')),
 		array('closed_amount_card' => $CI->lang->line('cash_receiving_closed_amount_card')),
 		array('closed_amount_check' => $CI->lang->line('cash_receiving_closed_amount_check')),
+		array('cash_receiving' => $CI->lang->line('cash_receiving')),
 		array('closed_amount_total' => $CI->lang->line('cash_receiving_closed_amount_total'))
 	);
 
@@ -820,6 +821,7 @@ function get_cash_up_data_row($cash_up)
 		'closed_amount_due' => to_currency($cash_up->closed_amount_due),
 		'closed_amount_card' => to_currency($cash_up->closed_amount_card),
 		'closed_amount_check' => to_currency($cash_up->closed_amount_check),
+		'cash_receiving' => to_currency($cash_up->cash_receiving),
 		'closed_amount_total' => to_currency($cash_up->closed_amount_total),
 		'edit' => anchor($controller_name."/view/$cash_up->cashup_id", '<span class="glyphicon glyphicon-edit"></span>',
 			array('class'=>'modal-dlg', 'data-btn-submit' => $CI->lang->line('common_submit'), 'title'=>$CI->lang->line($controller_name.'_update'))
