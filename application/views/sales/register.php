@@ -230,8 +230,8 @@ if (isset($success)) {
 					} else {
 						$item_kit_items = [];
 						$kit_item_inc = 0;
-						$kit_price = 0;
-						$kit_comulative_price = 0;
+						// $kit_price = 0;
+						// $kit_comulative_price = 0;
 						$kit_class_name = '';
 						foreach (array_reverse($cart, TRUE) as $line => $item) {
 						?>
@@ -245,14 +245,14 @@ if (isset($success)) {
 					}
 					if (in_array($item['kit_name'], $item_kit_items)) {
 						$hide_class = 'hidden';
-						$kit_price += $item['discounted_total'];
-						$kit_comulative_price += bcmul($item['kit_default_quantity'], $item['price']);						
+						// $kit_price += $item['discounted_total'];
+						// $kit_comulative_price += bcmul($item['kit_default_quantity'], $item['price']);						
 					} else {
 						$kit_item_inc++;
 						if ($item['kit_name'] != NULL) {
 							
-							$kit_price = $item['discounted_total'];
-							$kit_comulative_price = bcmul($item['kit_default_quantity'], $item['price']);
+							// $kit_price = $item['discounted_total'];
+							// $kit_comulative_price = bcmul($item['kit_default_quantity'], $item['price']);
 							array_push($item_kit_items, $item['kit_name']);
 							
 						}

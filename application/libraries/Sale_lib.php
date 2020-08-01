@@ -1128,6 +1128,7 @@ class Sale_lib
 		// Get Total Kit Value for front calculation only
 		$total_kit_price = 0;
 		$total_kit_original_value = 0;
+		
 		foreach($this->CI->Item_kit_items->get_info($item_kit_id) as $key=> $item_kit_item)
 		{
 			$item_info = $this->CI->Item->get_info_by_id_or_number($item_kit_item['item_id'], 0);
@@ -1137,11 +1138,11 @@ class Sale_lib
 					$bottom_discount = 0;
 				}
 				// If quantity purchased and then check for receipt or else then!
-				if($quantity_if_purchased > 0){
-					$item_quantity = $quantity_if_purchased;	
-				}else{
-					$item_quantity = $item_kit_item['quantity'];
-				}
+				// if($quantity_if_purchased > 0){
+				// 	$item_quantity = $quantity_if_purchased;	
+				// }else{
+				// 	$item_quantity = $item_kit_item['quantity'];
+				// }
 				$total_kit_original_value = round(bcadd($total_kit_original_value, bcmul($item_kit_item['quantity'], $item_kit_item['unit_price']) ), 2);
 				$total_kit_price = round(bcadd($total_kit_price, $this->get_item_total($item_kit_item['quantity'], $item_kit_item['unit_price'], $bottom_discount, $discount_type, TRUE)), 2);
 			}
@@ -1169,32 +1170,52 @@ class Sale_lib
 		$this->empty_cart();
 		$this->remove_customer();
 
-		$submit_kit_only_once = 0;
-		foreach($this->CI->Sale->get_sale_items_ordered($sale_id)->result() as $key=> $row)
+		$item_kit_items = [];
+		$item_kit_items_loop3 = [];
+		foreach($this->CI->Sale->get_sale_items_ordered($sale_id)->result() as $key1=> $row)
 		{
-			if($row->kit_id > 0 && $submit_kit_only_once !== $row->kit_id){
-				$submit_kit_only_once = $row->kit_id;
+			// check if kit is exist;
+			if($row->kit_id > 0){
+			
+				if(in_array($row->kit_id, $item_kit_items) && $row->discount_type == 1){
+					// Keep discount Zero; Prevent multiple discount on each kit items if type=1
+					$below_discount = 0;
+				}else{
+					// Prevent multiple discount on each kit items if type=1
+					$below_discount = $row->discount; 
+					array_push($item_kit_items, $row->kit_id);
 
-				for($i = 0; $i < $row->kit_quantity; $i++){
-					$item_kit_info = $this->CI->Item_kit->get_info($row->kit_id);
-					$kit_item_id = "KIT ".$row->kit_id;
-					$kit_name = $item_kit_info->name;
-					$kit_price_option = $item_kit_info->price_option;
-					$kit_print_option = $item_kit_info->print_option; // 0-all, 1-priced, 2-kit-only
-					$stock_warning = NULL;
-					$this->add_item_kit(
-						$kit_name, 
-						$kit_item_id, 
-						$row->item_location, 
-						$row->discount, 
-						$row->discount_type, 
-						$kit_price_option, 
-						$row->print_option,
-						$stock_warning
-					);
+					$total_kit_price = 0;
+					$total_kit_original_value = 0;
+					// counts kit value only once for every items in kit, it should must be true one time
+					// For kit price original value
+					foreach($this->CI->Item_kit_items->get_info($row->kit_id) as $key2=> $sale_kit_item)
+					{
+						$item_info = $this->CI->Item->get_info_by_id_or_number($sale_kit_item['item_id'], 0);
+						if(!empty($item_info)){
+							$total_kit_original_value = round(bcadd($total_kit_original_value, bcmul($sale_kit_item['quantity'], $sale_kit_item['unit_price']) ), 2);
+						}
+					}
+					// For purchased items kit total price!
+					foreach($this->CI->Sale->get_sale_items_ordered($sale_id)->result() as $key3=> $row3)
+					{
+						if($row3->kit_id > 0){
+							if(in_array($row3->kit_id, $item_kit_items_loop3) && $row3->discount_type == 1){
+								$sale_kit_discount = 0;
+							}else{
+								$sale_kit_discount = $row3->discount; // Prevent multiple discount on each kit items
+								array_push($item_kit_items_loop3, $row3->kit_id);
+							}
+							$total_kit_price = round(bcadd($total_kit_price, $this->get_item_total($row3->quantity_purchased, $row3->item_unit_price, $sale_kit_discount, $row3->discount_type, TRUE)), 2);
+						}
+					}
 				}
+				
+				$this->add_item($row->item_id, $row->quantity_purchased, $row->item_location, $row->discount, $row->discount_type, PRICE_MODE_KIT, $row->price_option, $row->print_option,  NULL, NULL, NULL, FALSE, NULL, FALSE, NULL, $row->kit_name, $row->kit_default_quantity, $row->kit_quantity, $total_kit_price, $total_kit_original_value, $below_discount, $row->kit_id);
+				
 
-			}else if($row->kit_id == 0){
+			}
+			else if($row->kit_id == 0){
 				$this->add_item($row->item_id, $row->quantity_purchased, $row->item_location, $row->discount, $row->discount_type, PRICE_MODE_STANDARD, NULL, NULL, $row->item_unit_price, $row->description, $row->serialnumber, $sale_id, TRUE, $row->print_option);
 			}
 		}

@@ -687,6 +687,7 @@ class Sale extends CI_Model
 				'item_id'			=> $item['item_id'],
 				'kit_id'			=> $item['kit_id'],
 				'kit_quantity'		=> $item['kit_temp'],
+				'kit_default_quantity' => $item['kit_default_quantity'],
 				'line'				=> $item['line'],
 				'description'		=> character_limiter($item['description'], 255),
 				'serialnumber'		=> character_limiter($item['serialnumber'], 30),
@@ -924,13 +925,17 @@ class Sale extends CI_Model
 			discount,
 			discount_type,
 			item_location,
-			print_option,
+			kit_default_quantity,
+			sales_items.print_option,
+			item_kits.price_option,
+			item_kits.name AS kit_name,
 			' . $this->Item->get_item_name('name') . ',
-			category,
+			items.category,
 			item_type,
 			stock_type');
 		$this->db->from('sales_items AS sales_items');
 		$this->db->join('items AS items', 'sales_items.item_id = items.item_id');
+		$this->db->join('item_kits', 'sales_items.kit_id = item_kits.item_kit_id', 'left');
 		$this->db->where('sales_items.sale_id', $sale_id);
 
 		// Entry sequence (this will render kits in the expected sequence)
