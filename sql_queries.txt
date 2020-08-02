@@ -2,4 +2,4 @@ Here we'll add all db related queries here!
 
 02 Aug 2020 - Izaz
 ----------------------------------
-ALTER TABLE `ospos_sales_items` ADD `kit_default_quantity_1` DECIMAL(10,2) NULL DEFAULT NULL AFTER `print_option`; 
+ALTER TABLE `ospos_sales_items` ADD `kit_default_quantity` DECIMAL(10,2) NULL DEFAULT NULL AFTER `print_option`; 
