@@ -173,7 +173,7 @@
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
-	<!-- End Moustafa Samir Font Awesome	-->
+	 End Moustafa Samir Font Awesome	-->
 <!--
 	<style type="text/css">
 		html {
@@ -199,20 +199,13 @@ REVISANDO ESTO 		-->
 	<link rel="stylesheet" href="dist/nio/display1sales.css" />
 	<link rel="stylesheet" href="dist/nio/display2sales.css" />
 	<link rel="stylesheet" href="dist/nio/menubar.css" />
-	<link rel="stylesheet" href="dist/nio/movil.css" />
 	<link rel="stylesheet" href="dist/nio/receivings.css" />
-	<link rel="stylesheet" href="dist/nio/movil.css" />
 	<link rel="stylesheet" href="dist/nio/invoice.css" />
-	<link rel="stylesheet" href="dist/nio/alert-warning.css" />		<!--
-	<link rel="stylesheet" href="dist/nio/overflow-x-pic.css" />	-->
+	<link rel="stylesheet" href="dist/nio/alert-warning.css" />		
 	<link rel="stylesheet" type="text/css" href="dist/nio/parche.css">
-	<script type="text/javascript" src="dist/nio/jquery.min.jsx"></script>
-<!--<link rel="stylesheet" type="text/css" href="dist/nio/item_list.css">-->
-	<link rel="stylesheet" href="dist/nio/quickpick.css" /> 	<!--
-	<link rel="stylesheet" href="dist/nio/css/style.css" /> 		-->
+	<link rel="stylesheet" href="dist/nio/quickpick.css" /> 	
 	<link rel="stylesheet" href="dist/nio/css/botonflotante.css" /> 
 	<link rel="stylesheet" href="dist/nio/css/bustrapmin.css" />
-	<link rel="stylesheet" href="dist/nio/css/calculadora.css" />
 <!--			>> API JS NIO <<			-->
 	<script type="text/javascript" src="dist/nio/js/fullscreen.js"></script>
 	<script type="text/javascript" src="dist/nio/js/keyup.js"></script>
@@ -220,15 +213,7 @@ REVISANDO ESTO 		-->
 	<script type="text/javascript" src="dist/nio/js/copyindex.js"></script>
 	<script type="text/javascript" src="dist/nio/js/fullscreen.js"></script>
 	<script type="text/javascript" src="dist/nio/js/ventana.js"></script>
-	<script type="text/javascript" src="dist/nio/js/liveclockXN.js"></script>
 	<script type="text/javascript" src="dist/nio/js/botonflotante.js"></script>
-	<script type="text/javascript" src="dist/nio/js/audio.js"></script>
-	<script type="text/javascript" src="dist/nio/js/calculadora.js"></script>
-<!--			>> APPS <<			-->
-	<link rel="stylesheet" type="text/css" href="dist/nio/calculadora/styleX.css">
-<!--			>> AJUSTABLE A PANTALLAS DE DISPOSIVOS MOVILES <<			-->
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
-
 
 <!--	|##########|	PHPPOINTOFSALE	|##########|	-->		<!--	ANDRIUX1990
 	<link rel="icon" href="https://demo.phppointofsale.com/favicon.ico" type="image/x-icon"/>	
@@ -395,8 +380,8 @@ REVISANDO ESTO 		-->
 	<script src="//phppointofsale.com/js/iframeResizer.contentWindow.min.js"></script>
 <!--	|##########|	/PHPPOINTOFSALE	|##########|	-->
 </head>
-<audio id="payment" src="dist/nio/audio/1.mp3"></audio>
-<audio id="touch" src="dist/nio/audio/2.mp3"></audio>
+<!-- <audio id="payment" src="dist/nio/audio/1.mp3"></audio> -->
+<!-- <audio id="touch" src="dist/nio/audio/2.mp3"></audio> -->
 <body>
 	<div class="modal fade hidden-print" id="myModal" tabindex="-1" role="dialog" aria-hidden="true"></div>
 	<div class="modal fade hidden-print" id="myModalDisableClose" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static"></div>

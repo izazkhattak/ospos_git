@@ -677,7 +677,9 @@ class Sale extends CI_Model
 		{
 			$cur_item_info = $this->Item->get_info($item['item_id']);
 
-			if($item['price'] == 0.00)
+			// We'll prevent zero discount value for kit only, 
+			// for regular it'll be zero if have price equal to zero.
+			if($item['price'] == 0.00 && $item['kit_id'] <= 0)
 			{
 				$item['discount'] = 0.00;
 			}
@@ -688,6 +690,7 @@ class Sale extends CI_Model
 				'kit_id'			=> $item['kit_id'],
 				'kit_quantity'		=> $item['kit_temp'],
 				'kit_default_quantity' => $item['kit_default_quantity'],
+				'kit_original_price' => $item['kit_total_temp_original_price'],
 				'line'				=> $item['line'],
 				'description'		=> character_limiter($item['description'], 255),
 				'serialnumber'		=> character_limiter($item['serialnumber'], 30),
@@ -916,6 +919,7 @@ class Sale extends CI_Model
 			sales_items.item_id,
 			sales_items.kit_id,
 			sales_items.kit_quantity,
+			sales_items.kit_original_price,
 			sales_items.description,
 			serialnumber,
 			line,

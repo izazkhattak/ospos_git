@@ -244,15 +244,10 @@ if (isset($success)) {
 						$kit_class_name = str_replace(" ", '_', $item['kit_name']);
 					}
 					if (in_array($item['kit_name'], $item_kit_items)) {
-						$hide_class = 'hidden';
-						// $kit_price += $item['discounted_total'];
-						// $kit_comulative_price += bcmul($item['kit_default_quantity'], $item['price']);						
+						$hide_class = 'hidden';					
 					} else {
 						$kit_item_inc++;
 						if ($item['kit_name'] != NULL) {
-							
-							// $kit_price = $item['discounted_total'];
-							// $kit_comulative_price = bcmul($item['kit_default_quantity'], $item['price']);
 							array_push($item_kit_items, $item['kit_name']);
 							
 						}
@@ -286,7 +281,7 @@ if (isset($success)) {
 					<td>
 						<?php
 							if ($item['kit_name']) {
-								echo form_input(array('autocomplete'=>'off', 'data-trid' => 'child_kits_' . $kit_item_inc, 'name' => 'quantity_kit', 'class' => 'form-control input-sm cantidad', 'value' => to_currency_no_money($item['kit_temp']), 'tabindex' => ++$tabindex, 'onClick' => 'this.select();'));
+								echo form_input(array('autocomplete'=>'off', 'data-trid' => 'child_kits_' . $kit_item_inc, 'name' => 'quantity_kit', 'class' => 'form-control input-sm cantidad', 'value' => to_quantity_decimals($item['kit_temp']), 'tabindex' => ++$tabindex, 'onClick' => 'this.select();'));
 							} else {
 								echo form_input(array('data-trid' => 'child_kits_' . $kit_item_inc, 'name' => 'quantity', 'class' => 'form-control input-sm cantidad', 'value' => to_quantity_decimals($item['quantity']), 'tabindex' => ++$tabindex, 'onClick' => 'this.select();'));
 							}
@@ -1024,22 +1019,25 @@ function setData(data) {
 }
 $(function () {
 
-	// $(document).on("click", ".delete_item", function(e) {
-	// 	e.preventDefault();
-	// 	let current_input = $(this);
-	// 	var kit_childs_items = current_input.data("trid");
-	// 	$.each($('#cart_contents .' + kit_childs_items + ' .delete_item'), function(i, j) {
-	// 		$.ajax({
-	// 			type: 'post',
-	// 			url: $(this).data('href'),
-	// 			// data: $(this).serialize(),
-	// 			success: function(r) {
-	// 				console.log('ajax delete form was submitted');
-	// 			}
-	// 		});
-	// 	});
-	// 	window.location.href = "<?= $controller_name ?>";
-	// });
+	$(document).on("click", ".delete_item", function(e) {
+		e.preventDefault();
+		let current_input = $(this);
+		var kit_childs_items = current_input.data("trid");
+		// $.each($('#cart_contents .' + kit_childs_items + ' .delete_item'), function(i, j) {
+		// });
+		$.ajax({
+			type: 'post',
+			url: $(this).data('href'),
+			// data: $(this).serialize(),
+			success: function(r) {
+				setData(r);
+				$('.selectpicker').selectpicker('refresh');
+				$('[data-toggle="toggle"]').bootstrapToggle('refresh');
+				console.log('ajax delete form was submitted');
+			}
+		});
+		// window.location.href = "<?= $controller_name ?>";
+	});
 
 	$(document).ready(function() {
 					$(window).keydown(function(event) {

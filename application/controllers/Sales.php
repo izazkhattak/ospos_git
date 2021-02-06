@@ -452,7 +452,7 @@ class Sales extends Secure_Controller
 
 			// Add item kit items to order
 			$stock_warning = NULL;
-			if(!$this->sale_lib->add_item_kit($kit_name, $item_id_or_number_or_item_kit_or_receipt, $item_location, $discount, $discount_type, $kit_price_option, $kit_print_option, $stock_warning))
+			if(!$this->sale_lib->add_item_kit($kit_name, $item_id_or_number_or_item_kit_or_receipt, $item_location, $discount, $discount_type, $kit_price_option, $kit_print_option, $stock_warning, $quantity, 0, $mode))
 			{
 				$data['error'] = $this->lang->line('sales_unable_to_add_item');
 			}
@@ -491,8 +491,8 @@ class Sales extends Secure_Controller
 		$quantity = parse_quantity($this->input->post('quantity'));
 		$discount = parse_decimals($this->input->post('discount'));
 		$discount_type = $this->input->post('discount_type');
-		$kit_temp = $this->input->post('quantity_kit');
-
+		$kit_temp = parse_quantity($this->input->post('quantity_kit'));
+		
 		$item_location = $this->input->post('location');
 		$discounted_total = $this->input->post('discounted_total') != '' ? $this->input->post('discounted_total') : NULL;
 

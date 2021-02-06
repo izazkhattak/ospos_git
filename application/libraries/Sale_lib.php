@@ -457,46 +457,32 @@ class Sale_lib
 		$item_count = 0;
 		$total_units = 0.0;
 
-		$kit_unique_name = '';
+		$kit_unique_id = [];
 		$discount_value = 0;
-		$kit_unique_inc = 0;
-
+		
 		foreach ($this->get_cart() as $item) {
 
 			$discount_value = $item['discount'];
 
 			if ($item['stock_type'] == HAS_STOCK) {
-				if($item['kit_name'] == NULL){
-					$item_count++;
-					
-				}else{
-					if($item['kit_name'] != $kit_unique_name){
-						$kit_unique_name = $item['kit_name'];
-						$item_count++;
-
-						$discount_value = $item['discount'];
-						if($item['discount_type'] == 1){
-							$discount_value = $item['discount'];//bcmul($item['discount'], $item['kit_temp']);
-						}
-						
-						// if($kit_unique_inc > 0 && $item['discount_type'] == 1){
-						// 	$discount_value = 0;
-						// }
-						
-						$kit_unique_inc = 0;
-					}else{
-						$kit_unique_inc++;
-						$discount_value = $item['discount'];
-						if($item['discount_type'] == 1){
-							$discount_value = $item['discount'];//bcmul($item['discount'], $item['kit_temp']);
-						}
-						
-						if($kit_unique_inc > 0 && $item['discount_type'] == 1){
-							$discount_value = 0;
-						}
-					}
-				}
 				$total_units += $item['quantity'];
+			}
+			if($item['kit_id'] <= 0){
+				// item counts for regular items
+				$item_count++;
+
+			}else{
+				// In case of kits items
+				if(in_array($item['kit_id'], $kit_unique_id) ){
+					
+					if($item['discount_type'] == FIXED){
+						$discount_value = 0;
+					}
+
+				}else{
+					$item_count++;
+					array_push($kit_unique_id, $item['kit_id']);
+				}
 			}
 			$discount_amount = $this->get_item_discount($item['quantity'], $item['price'], $discount_value, $item['discount_type']);
 			$total_discount = bcadd($total_discount, $discount_amount);
@@ -744,7 +730,7 @@ class Sale_lib
 	}
 
 	public function add_item(&$item_id, $quantity = 1, $item_location, $discount = 0.0, $discount_type = 0, $price_mode = PRICE_MODE_STANDARD, $kit_price_option = NULL, $kit_print_option = NULL, $price_override = NULL, $description = NULL, $serialnumber = NULL, $sale_id = NULL, $include_deleted = FALSE, $print_option = NULL, $line = NULL,
-		$kit_name = NULL, $kit_default_quantity = 0, $kit_temp = 0, $total_kit_price = 0, $total_kit_original_value = 0, $not_repeated_discount = 0, $kit_id = 0)
+		$kit_name = NULL, $kit_default_quantity = 0, $kit_temp = 0, $total_kit_price = 0, $total_kit_original_value = 0, $not_repeated_discount = 0, $kit_id = 0, $mode = 'NULL')
 	{
 		$item_info = $this->CI->Item->get_info_by_id_or_number($item_id, $include_deleted);
 		//make sure item exists
@@ -823,7 +809,7 @@ class Sale_lib
 				if(!$item_info->is_serialized)
 				{
 					$quantity = bcadd($quantity, $items[$updatekey]['quantity']);
-					$kit_temp = bcadd($items[$updatekey]['kit_temp'], 1);
+					$kit_temp = ($mode == 'return') ? bcsub($items[$updatekey]['kit_temp'], 1) : bcadd($items[$updatekey]['kit_temp'], 1);
 				}
 			}
 		}
@@ -923,7 +909,11 @@ class Sale_lib
 			$line = &$items[$updatekey];
 			$line['quantity'] = $quantity;
 			$line['kit_temp'] = $kit_temp;
-			$line['kit_total_temp_price'] = bcmul($total_kit_price, $kit_temp);
+			$total_kit_price = bcmul($total_kit_price, $kit_temp);
+			if($kit_temp < 0){
+				$total_kit_price = -$total_kit_price;
+			}
+			$line['kit_total_temp_price'] = $total_kit_price;
 			$line['total'] = $total;
 			$line['discounted_total'] = $discounted_total;
 		}
@@ -992,33 +982,32 @@ class Sale_lib
 	public function edit_item($line, $description, $serialnumber, $quantity, $discount, $discount_type, $price, $discounted_total=NULL, $kit_temp = 0)
 	{
 		$items = $this->get_cart();
+		// print_r($items);
+		// exit;
 		if(isset($items[$line]))
 		{
 			$line = &$items[$line];
 
 			// Set Kit_temp for same Kits
-			if($line['kit_name'] != ""){
-				$kit_unique_name = $line['kit_name'];
+			if($line['kit_name'] != "" && $line['kit_id'] > 0){
+				$kit_unique_id = $line['kit_id'];
 				$kit_dicounted_value = 0;
 				$kit_increment = 0;
 				foreach ($items as $key=> $row) {
-					if($row['kit_name'] == $kit_unique_name){
+					if($row['kit_id'] == $kit_unique_id){
 
-						$bottom_discount = $discount;
-						if($discount_type == 1){
-							$bottom_discount = $discount;//bcmul($discount, $kit_temp);
-						}
-						
-						if($kit_increment > 0 && $discount_type == 1){
+						$bottom_discount = $discount;						
+						if($kit_increment > 0 && $discount_type == FIXED){
 							$bottom_discount = 0;
 						}
 
 						$kit_increment++;
-						$quantity = ($items[$key]['kit_default_quantity'] * $kit_temp);
+						$quantity = bcmul($items[$key]['kit_default_quantity'], $kit_temp);
+						$quantity = ($kit_temp < 0) ? -$quantity : $quantity;
 						$items[$key]['description'] = $description;
 						$items[$key]['serialnumber'] = $serialnumber;
-						$items[$key]['kit_temp'] = ($kit_temp < 1) ? 1 : $kit_temp;
 						$items[$key]['quantity'] = $quantity;
+						$items[$key]['kit_temp'] = $kit_temp;
 						$items[$key]['discount'] = $discount;
 						if(!is_null($discount_type))
 						{
@@ -1031,9 +1020,9 @@ class Sale_lib
 							// Note when entered the "discounted_total" is expected to be entered without a discount
 							$quantity = $this->get_quantity_sold($discounted_total, $items[$key]['price']);
 						}
-						$items[$key]['total'] = $this->get_item_total($quantity, $items[$key]['price'], $bottom_discount, $items[$key]['discount_type']);
-						$items[$key]['discounted_total'] = $this->get_item_total($quantity, $items[$key]['price'], $bottom_discount, $items[$key]['discount_type'], TRUE);
-						$kit_dicounted_value = round(bcadd($kit_dicounted_value, $items[$key]['discounted_total'] ), 2, PHP_ROUND_HALF_UP);
+						$items[$key]['total'] = $this->get_item_total($quantity, $items[$key]['price'], $bottom_discount, $discount_type);
+						$items[$key]['discounted_total'] = $this->get_item_total($quantity, $items[$key]['price'], $bottom_discount, $discount_type, TRUE);
+						$kit_dicounted_value = bcadd($kit_dicounted_value, $items[$key]['discounted_total'] );
 						$items[$key]['kit_total_temp_price'] = $kit_dicounted_value;
 						// $items[$key]['kit_total_temp_original_price'] = bcmul($row['price'], $kit_temp);
 						
@@ -1047,13 +1036,9 @@ class Sale_lib
 					// Note when entered the "discounted_total" is expected to be entered without a discount
 					$quantity = $this->get_quantity_sold($discounted_total, $price);
 				}
-				// if($line['kit_default_quantity'] > 0){
-				//     $quantity = ($line['kit_default_quantity'] * $kit_temp);
-				// }
 
 				$line['description'] = $description;
 				$line['serialnumber'] = $serialnumber;
-				// $line['kit_temp'] = $kit_temp;
 				$line['quantity'] = $quantity;
 				$line['discount'] = $discount;
 				if(!is_null($discount_type))
@@ -1118,7 +1103,7 @@ class Sale_lib
 		$this->set_customer($this->CI->Sale->get_customer($sale_id)->person_id);
 	}
 
-	public function add_item_kit($kit_name, $external_item_kit_id, $item_location, $discount, $discount_type, $kit_price_option, $kit_print_option, &$stock_warning, $kit_temp_quantity = 1, $quantity_if_purchased = 0)
+	public function add_item_kit($kit_name, $external_item_kit_id, $item_location, $discount, $discount_type, $kit_price_option, $kit_print_option, &$stock_warning, $kit_temp_quantity = 1, $quantity_if_purchased = 0, $mode = 'NULL')
 	{
 		//KIT #
 		$pieces = explode(' ', $external_item_kit_id);
@@ -1126,25 +1111,25 @@ class Sale_lib
 		$result = TRUE;
 
 		// Get Total Kit Value for front calculation only
-		$total_kit_price = 0;
-		$total_kit_original_value = 0;
+		$total_kit_price = 0.00;
+		$total_kit_original_value = 0.00;
 		
 		foreach($this->CI->Item_kit_items->get_info($item_kit_id) as $key=> $item_kit_item)
 		{
 			$item_info = $this->CI->Item->get_info_by_id_or_number($item_kit_item['item_id'], 0);
 			if(!empty($item_info)){
 				$bottom_discount = $discount;
-				if($key > 0 && $discount_type == 1){
+				if($key > 0 && $discount_type == FIXED){
 					$bottom_discount = 0;
 				}
-				// If quantity purchased and then check for receipt or else then!
-				// if($quantity_if_purchased > 0){
-				// 	$item_quantity = $quantity_if_purchased;	
-				// }else{
-				// 	$item_quantity = $item_kit_item['quantity'];
-				// }
-				$total_kit_original_value = round(bcadd($total_kit_original_value, bcmul($item_kit_item['quantity'], $item_kit_item['unit_price']) ), 2);
-				$total_kit_price = round(bcadd($total_kit_price, $this->get_item_total($item_kit_item['quantity'], $item_kit_item['unit_price'], $bottom_discount, $discount_type, TRUE)), 2);
+
+				$total_kit_original_value = bcadd($total_kit_original_value, bcmul($item_kit_item['quantity'], $item_kit_item['unit_price']) );
+				if($mode == 'return'){
+					$total_discount = $this->get_item_total(-$item_kit_item['quantity'], $item_kit_item['unit_price'], $bottom_discount, $discount_type, TRUE);
+					$total_kit_price = bcadd($total_discount, $total_kit_price);
+				}else{
+					$total_kit_price = bcadd($this->get_item_total($item_kit_item['quantity'], $item_kit_item['unit_price'], $bottom_discount, $discount_type, TRUE), $total_kit_price);
+				}
 			}
 		}
 		foreach($this->CI->Item_kit_items->get_info($item_kit_id) as $key2=> $item_kit_item)
@@ -1154,7 +1139,8 @@ class Sale_lib
 				$below_discount = 0;
 			}
 
-			$result &= $this->add_item($item_kit_item['item_id'], $item_kit_item['quantity'], $item_location, $discount, $discount_type, PRICE_MODE_KIT, $kit_price_option, $kit_print_option,  NULL, NULL, NULL, FALSE, NULL, FALSE, NULL, $kit_name, $item_kit_item['quantity'], $kit_temp_quantity, $total_kit_price, $total_kit_original_value, $below_discount, $item_kit_item['item_kit_id']);
+			$quantity = ($mode == 'return') ? -$item_kit_item['quantity'] : $item_kit_item['quantity'];
+			$result &= $this->add_item($item_kit_item['item_id'], $quantity, $item_location, $discount, $discount_type, PRICE_MODE_KIT, $kit_price_option, $kit_print_option,  NULL, NULL, NULL, FALSE, NULL, FALSE, NULL, $kit_name, $quantity, $kit_temp_quantity, $total_kit_price, $total_kit_original_value, $below_discount, $item_kit_item['item_kit_id'], $mode);
 
 			if($stock_warning == NULL)
 			{
@@ -1172,13 +1158,15 @@ class Sale_lib
 
 		$item_kit_items = [];
 		$item_kit_items_loop3 = [];
+		$total_kit_price = 0; // For calculating kit price
+		// $total_kit_original_value = 0; // For calculating original kit price
 		foreach($this->CI->Sale->get_sale_items_ordered($sale_id)->result() as $key1=> $row)
 		{
 			// check if kit is exist;
 			if($row->kit_id > 0){
 			
-				if(in_array($row->kit_id, $item_kit_items) && $row->discount_type == 1){
-					// Keep discount Zero; Prevent multiple discount on each kit items if type=1
+				if(in_array($row->kit_id, $item_kit_items) && $row->discount_type == FIXED){
+					// Keep discount Zero; Prevent multiple discount on each kit items if type=FIXED
 					$below_discount = 0;
 				}else{
 					// Prevent multiple discount on each kit items if type=1
@@ -1186,32 +1174,22 @@ class Sale_lib
 					array_push($item_kit_items, $row->kit_id);
 
 					$total_kit_price = 0;
-					$total_kit_original_value = 0;
-					// counts kit value only once for every items in kit, it should must be true one time
-					// For kit price original value
-					foreach($this->CI->Item_kit_items->get_info($row->kit_id) as $key2=> $sale_kit_item)
-					{
-						$item_info = $this->CI->Item->get_info_by_id_or_number($sale_kit_item['item_id'], 0);
-						if(!empty($item_info)){
-							$total_kit_original_value = round(bcadd($total_kit_original_value, bcmul($sale_kit_item['quantity'], $sale_kit_item['unit_price']) ), 2);
-						}
-					}
 					// For purchased items kit total price!
 					foreach($this->CI->Sale->get_sale_items_ordered($sale_id)->result() as $key3=> $row3)
 					{
-						if($row3->kit_id > 0){
-							if(in_array($row3->kit_id, $item_kit_items_loop3) && $row3->discount_type == 1){
+						if($row3->kit_id > 0 && $row->kit_id == $row3->kit_id){
+							if(in_array($row3->kit_id, $item_kit_items_loop3) && $row3->discount_type == FIXED){
 								$sale_kit_discount = 0;
 							}else{
-								$sale_kit_discount = $row3->discount; // Prevent multiple discount on each kit items
 								array_push($item_kit_items_loop3, $row3->kit_id);
+								$sale_kit_discount = $row3->discount; // Prevent multiple discount on each kit items								
 							}
-							$total_kit_price = round(bcadd($total_kit_price, $this->get_item_total($row3->quantity_purchased, $row3->item_unit_price, $sale_kit_discount, $row3->discount_type, TRUE)), 2);
+							$total_kit_price = bcadd($total_kit_price, $this->get_item_total($row3->quantity_purchased, $row3->item_unit_price, $sale_kit_discount, $row3->discount_type, TRUE));
 						}
 					}
 				}
 				
-				$this->add_item($row->item_id, $row->quantity_purchased, $row->item_location, $row->discount, $row->discount_type, PRICE_MODE_KIT, $row->price_option, $row->print_option,  NULL, NULL, NULL, FALSE, NULL, FALSE, NULL, $row->kit_name, $row->kit_default_quantity, $row->kit_quantity, $total_kit_price, $total_kit_original_value, $below_discount, $row->kit_id);
+				$this->add_item($row->item_id, $row->quantity_purchased, $row->item_location, $row->discount, $row->discount_type, PRICE_MODE_KIT, $row->price_option, $row->print_option,  NULL, NULL, NULL, FALSE, NULL, FALSE, NULL, $row->kit_name, $row->kit_default_quantity, $row->kit_quantity, $total_kit_price, $row->kit_original_price, $below_discount, $row->kit_id);
 				
 
 			}

@@ -3,3 +3,9 @@ Here we'll add all db related queries here!
 02 Aug 2020 - Izaz
 ----------------------------------
 ALTER TABLE `ospos_sales_items` ADD `kit_default_quantity` DECIMAL(10,2) NULL DEFAULT NULL AFTER `print_option`; 
+
+
+08 Aug 2020 - Izaz
+-------------------------
+ALTER TABLE `ospos_sales_items` ADD `kit_original_price` DECIMAL(10,2) NULL DEFAULT '0.00' AFTER `kit_default_quantity`, ADD `kit_total_price` DECIMAL(10,2) NULL DEFAULT '0.00' AFTER `kit_original_price`; 
+ALTER TABLE `ospos_sales_items` DROP `kit_total_price`;
