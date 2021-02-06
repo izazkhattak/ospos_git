@@ -478,9 +478,7 @@ class Sales extends Secure_Controller
 	public function edit_item($item_id)
 	{
 		$data = array();
-
 		
-
 		$this->form_validation->set_rules('price', 'lang:sales_price', 'required|callback_numeric');
 		// $this->form_validation->set_rules('quantity', 'lang:sales_quantity', 'required|callback_numeric');
 		$this->form_validation->set_rules('discount', 'lang:sales_discount', 'required|callback_numeric');
